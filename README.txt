@@ -1,33 +1,33 @@
-Strata by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# İlker Aydın Yılmaz - Portfolio Website
 
+This is my personal portfolio website showcasing my projects and skills in Data Science, Machine Learning, and AI Engineering.
 
-A simple, minimalist template that actually began life as an unused redesign of my
-personal site. Includes a (configurable) parallax background effect, Poptrox-powered
-lightbox gallery, a bunch of pre-styled elements, and Sass sources for the Sass-inclined.
+## Features
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+- Responsive design that works well on desktop and mobile devices
+- Project filtering by technologies (Python, SQL, TensorFlow, PyTorch, etc.)
+- Separate sections for Data Science & Analytics and AI/ML Engineering projects
+- Contact information and social links
 
-(* = Not included)
+## Technologies Used
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+- HTML5 & CSS3
+- JavaScript
+- Custom responsive design
+- GitHub Pages for hosting
 
-AJ
-aj@lkn.io | @ajlkn
+## View Live
 
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
+Visit my portfolio at: [https://iamilker0.github.io](https://iamilker0.github.io)
 
+## Contact
 
-Credits:
+Feel free to reach out to me:
+- Email: ilkeer0358@gmail.com
+- LinkedIn: [İlker Aydın Yılmaz](https://www.linkedin.com/in/ilker-aydın-yılmaz-21ba2926b)
+- GitHub: [IamIlker0](https://github.com/IamIlker0)
+- Kaggle: [ilkeraydnylmaz](https://www.kaggle.com/ilkeraydnylmaz)
 
-	Demo Images:
-		Unsplash (unsplash.com)
+---
 
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+*This website was created using HTML5 UP's Strata theme as a starting point, heavily modified and customized to fit my needs. Original theme by [@ajlkn](https://html5up.net).*

@@ -1765,11 +1765,58 @@ input, select, textarea {
 	}
 
 	header p {
-		color: #b2b2b2;
+		color: #060214;
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
 
+		
+	.about-container {
+		text-align: left;
+		margin-top: 30px;
+		max-height: 250px; 
+		overflow-y: auto; 
+		overflow-x: hidden; 
+		padding-right: 15px; 
+		padding-left: 10px;
+		padding-bottom: 15px;
+		font-size: 0.9em;
+		line-height: 1.6;
+		border-radius: 4px;
+		
+	}
+
+	
+	.about-container::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.about-container::-webkit-scrollbar-track {
+		background: rgba(15, 15, 40, 0.5);
+		border-radius: 3px;
+	}
+
+	.about-container::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.684);
+		border-radius: 3px;
+	}
+
+	.about-container::-webkit-scrollbar-thumb:hover {
+		background: rgba(255, 255, 255, 0.392);
+	}
+
+	
+	.about-container p {
+		margin-bottom: 10px;
+		word-wrap: break-word; 
+		max-width: 100%; 
+	}
+
+
+	#header .inner > div {
+		max-width: 100%;
+		box-sizing: border-box;
+	}
 	header h2 + p {
 		font-size: 1.25em;
 		margin-top: -1em;
@@ -2049,7 +2096,7 @@ input, select, textarea {
 			-webkit-transition: opacity 0.2s ease-in-out;
 			-ms-transition: opacity 0.2s ease-in-out;
 			transition: opacity 0.2s ease-in-out;
-			background: url("images/overlay.png");
+			/* background: url("images/overlay.png"); */
 			border-radius: 0.35em;
 			content: '';
 			display: block;
@@ -2094,15 +2141,28 @@ input, select, textarea {
 			}
 
 			.image.thumb:hover:before {
-				background: url("images/overlay.png"), url("images/overlay.png");
+				/* background: url("images/overlay.png"), url("images/overlay.png"); */
 				opacity: 1.0;
 			}
 
 		.image img {
 			border-radius: 0.35em;
 			display: block;
+			transition: all 0.3s ease;
 		}
 
+		.image.thumb:hover img {
+			transform: scale(1.05); 
+			filter: brightness(0.5)
+		}
+		.image.thumb {
+			overflow: hidden; /* Büyüme efektinin taşmasını engelleme */
+			position: relative;
+		}
+		
+		.image.thumb:hover {
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
 		.image.left {
 			float: left;
 			margin: 0 1.5em 1em 0;
@@ -2114,7 +2174,7 @@ input, select, textarea {
 			margin: 0 0 1em 1.5em;
 			top: 0.25em;
 		}
-
+		
 		.image.left, .image.right {
 			max-width: 40%;
 		}
@@ -2628,11 +2688,11 @@ input, select, textarea {
 		}
 
 		#header h2, #header h3, #header h4, #header h5, #header h6 {
-			color: #ffffff;
+			color: #01011266;
 		}
 
 		#header h1 {
-			color: rgba(255, 255, 255, 0.5);
+			color: #060214;
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
@@ -2683,7 +2743,7 @@ input, select, textarea {
 
 	#main {
 		margin-left: 35%;
-		max-width: 54em;
+		max-width: em;
 		padding: 8em 4em 4em 4em;
 		width: calc(100% - 35%);
 	}
@@ -3078,7 +3138,7 @@ input, select, textarea {
 			#footer {
 				background-attachment: scroll;
 				background-color: #1f1815;
-				background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+				background-image: url("images/nord-lights.png");
 				background-position: top left,						bottom center;
 				background-repeat: repeat,							no-repeat;
 				background-size: auto,							cover;

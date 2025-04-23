@@ -6,458 +6,678 @@
 -->
 <html>
 	<head>
-		<title>Strata by HTML5 UP</title>
+		<title>Ilker Aydin Yilmaz - Data Science & AI/ML Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			body {
+				background-color: #0a0a20;
+				color: #e0e0e0;
+				min-height: 100vh;
+			}
+			
+			/* Main structure */
+			#header {
+				background-color: rgba(5, 5, 20, 0.8);
+				width: 25%; /* Reduced width */
+				position: fixed;
+				top: 0;
+				left: 0;
+				height: 100%;
+				padding: 2em;
+				text-align: center;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+				background-image: url("images/overlay.png"), url("images/nord-lights.png");
+				background-size: auto, cover;
+				background-position: center center;
+				background-repeat: repeat, no-repeat;
+				background-attachment: fixed; /* Fixed background image */
+				background-position: left 0 !important; 
+    background-attachment: fixed !important; 
+			}
+			
+			#main {
+				background-color: #0a0a20;
+				margin-left: 25%; /* Match header width */
+				padding: 4em;
+				width: 75%; /* Full remaining width */
+			}
+			
+			#footer {
+				margin-left: 25%; /* Match header width */
+				
+			}
+			
+			@media screen and (max-width: 1280px) {
+				#header {
+					top: 60px;
+					width: 100%;
+					position: relative;
+					padding: 2em 1.5em;
+					height: auto;
+					text-align: center ;
+					min-height: 0;
+				}
+				
+				#main {
+					margin-left: 0;
+					padding: 2em 2em;
+					width: 100%;
+					margin-left: 25%; /* Match header width */
+					padding: 4em;
+					width: 100%; /* Full remaining width */
+					min-height: 100vh; /* Ensure it covers full height */
+					margin-left: 0;
+				}
+				
+				#footer {
+					margin-left: 0;
+				}
+				
+				.topnav {
+					left: 0;
+					position: fixed;
+					display: flex;
+					justify-content: center;
+					width: 100%;				}
+			}
+			
+			/* Project cards */
+			.work-item {
+				background-color: rgba(15, 15, 40, 0.8) !important;
+				border-radius: 4px;
+				padding: 20px;
+				margin-bottom: 30px;
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				background-image: none !important;
+				
+			}
+			
+			.work-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+			}
+			
+			.work-item .image.fit {
+				height: 500px;
+				overflow: hidden;
+			}
+
+			.work-item .image.fit img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			.row article {
+				padding: 0 10px;
+			}
+			
+			/* Typography and links */
+			a {
+				color: #64ffda;
+				transition: color 0.3s;
+			}
+			
+			a:hover {
+				color: #9effed;
+			}
+			
+			h1, h2, h3, h4, h5, h6 {
+				color: #ffffff;
+			}
+			
+			p {
+				color: #e0e0e0;
+			}
+			
+			/* Tags */
+			.tag {
+				display: inline-block;
+				font-size: 0.8em;
+				padding: 3px 8px;
+				border-radius: 3px;
+				margin-right: 5px;
+				margin-bottom: 5px;
+				color: white;
+			}
+			
+			.tags {
+				margin-top: 15px;
+				border-top: 1px solid rgba(100, 255, 218, 0.2); /* Add top border to tags */
+				padding-top: 10px;
+			}
+			
+			.tag.python { background-color: #306998; }
+			.tag.sql { background-color: #27a5e9; }
+			.tag.excel { background-color: #1D6F42; }
+			.tag.tableau { background-color: #E97627; }
+			.tag.ml { background-color: #7b61ff; }
+			.tag.tensorflow { background-color: #383d47; }
+			.tag.pytorch { background-color: #a5142a; }
+			.tag.nlp { background-color: #5A9; }
+			.tag.deeplearning { background-color: #8A2BE2; }
+			.tag.llm { background-color: #20B2AA; }
+			.tag.streamlit { background-color: #FF4B4B; }
+			.tag.neuralnetworks { background-color: #9370DB; }
+			
+			/* Top navigation */
+			/* Ana menü stilini koruyoruz */
+			.topnav {
+				background: rgba(5, 5, 20, 0.9);
+				padding: 15px 0;
+				position: fixed;
+				top: 0;
+				right: 0;
+				left: 25%; /* Match header width */
+				z-index: 1000;
+				text-align: center;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+			}
+
+			
+			@media screen and (max-width: 1280px) {
+				.topnav {  
+					left: 0;
+					position: fixed;
+					display: flex;
+					justify-content: center;
+					width: 100%;
+					
+				}
+			}
+			
+			.topnav ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: inline-flex;
+			}
+			
+			.topnav li {
+				margin: 0 15px;
+			}
+			
+			.topnav a {
+				color: white;
+				text-decoration: none;
+				font-size: 16px;
+				transition: color 0.3s;
+				border-bottom: none;
+				padding: 5px 0;
+				position: relative;
+			}
+			
+			.topnav a:hover, .topnav a.active {
+				color: #64ffda;
+			}
+			
+			.topnav a.active:after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				bottom: 0;
+				left: 0;
+				background-color: #64ffda;
+			}
+			
+			/* Fix padding for fixed nav */
+			.main-content {
+				padding-top: 80px;
+				
+			}
+			
+			/* Filter section */
+			.filter-section {
+				border-top: 1px solid rgba(100, 255, 218, 0.2);
+				border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+				padding: 25px 0;
+				margin: 30px 0;
+			}
+			
+			.filter-title {
+				margin-bottom: 20px;
+				color: #ffffff;
+			}
+			
+			.filter-buttons {
+				margin-bottom: 25px;
+				border-bottom: 1px solid rgba(100, 255, 218, 0.2); /* Add bottom border to filter buttons */
+				padding-bottom: 15px;
+			}
+			
+			.filter-btn {
+				background: rgba(15, 15, 40, 0.8);
+				color: white;
+				border: 1px solid rgba(100, 255, 218, 0.3);
+				padding: 8px 15px;
+				margin: 0 5px 8px 0;
+				border-radius: 3px;
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+			
+			.filter-btn:hover {
+				background: rgba(100, 255, 218, 0.1);
+				border-color: #64ffda;
+			}
+			
+			.filter-btn.active {
+				background: #64ffda;
+				color: #0a0a20;
+				border-color: #64ffda;
+			}
+			
+			.project-item.hidden {
+				display: none;
+			}
+			
+			/* Header content */
+			.avatar-container {
+				margin-bottom: 20px;
+			}
+			
+			.image.avatar img {
+				width: 160px;
+				height: 190px;
+				border-radius: 90px;
+				border: 3px solid rgba(100, 255, 218, 0.3);
+			}
+			
+			.header-title {
+				font-size: 1.5em;
+				line-height: 1.4;
+				margin-bottom: 10px;
+			}
+			
+			.header-subtitle {
+				font-size: 1.1em;
+				margin-bottom: 30px;
+				color: #060214;
+			}
+			
+			/* About sidebar */
+			.about-container {
+				text-align: left;
+				margin-top: 30px;
+				max-height: 250px;
+				/* overflow-y: auto; */
+				padding-right: 10px;
+				font-size: 0.9em;
+				line-height: 1.6;
+			}
+			
+			/* Scrollbar */
+			.about-container::-webkit-scrollbar {
+				width: 6px;
+	
+
+			}
+			
+			.about-container::-webkit-scrollbar-track {
+				background: rgba(15, 15, 40, 0.5);
+				border-radius: 3px;
+			}
+			
+			.about-container::-webkit-scrollbar-thumb {
+				border-radius: 3px;
+				background: rgba(255, 255, 255, 0.684); /* Semi-transparent white track */
+				border-radius: 3px;
+			}
+			
+			.about-container::-webkit-scrollbar-thumb:hover {
+				background: rgba(255, 255, 255, 0.392); /* Slightly more opaque on hover */
+			}
+			
+			/* Contact section */
+			.contact-section {
+				margin-top: 40px;
+				text-align: left;
+			}
+			.contact-section h3 {
+				text-align: center;
+				width: 100%;
+			}
+			.contact-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.contact-list li {
+				margin-bottom: 15px;
+			}
+			
+			.contact-list a {
+				color: #e0e0e0;
+				transition: color 0.3s;
+				text-decoration: none;
+				border-bottom: 1px dotted rgba(100, 255, 218, 0.3);
+			}
+			
+			.contact-list a:hover {
+				color: #64ffda;
+				border-bottom-color: #64ffda;
+			}
+			
+			.contact-list .icon {
+				color: #64ffda;
+				margin-right: 10px;
+				width: 16px;
+				text-align: center;
+			}
+			
+			/* Social icons */
+			.social-icons {
+				margin-top: 30px;
+				display: flex;
+				justify-content: center;
+			}
+			
+			.social-icons a {
+				display: inline-block;
+				margin: 0 10px;
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border-radius: 50%;
+				background: rgba(15, 15, 40, 0.8);
+				color: #64ffda;
+				border: 1px solid rgba(100, 255, 218, 0.3);
+				transition: all 0.3s;
+			}
+			
+			.social-icons a:hover {
+				background: rgba(100, 255, 218, 0.1);
+				transform: translateY(-3px);
+			}
+			
+			/* Section title */
+			.section-title {
+				position: relative;
+				margin-bottom: 40px;
+				padding-bottom: 15px;
+			}
+			
+			.section-title:after {
+				content: '';
+				position: absolute;
+				width: 50px;
+				height: 3px;
+				background: #64ffda;
+				bottom: 0;
+				left: 0;
+			}
+			@media screen and (min-width: 1281px) {
+				.about-container {
+					text-align: left;
+					margin-top: 30px;
+					max-height: none !important; /* Sınırsız yükseklik */
+					overflow-y: visible !important; /* Kaydırma çubuğu YOK */
+					overflow-x: hidden; /* Yatay taşma engelle */
+					padding-right: 10px;
+					font-size: 0.9em;
+					line-height: 1.6;
+					background-color: transparent;
+				}
+			}
+			/* Responsive fixes for mobile */
+			@media screen and (max-width: 736px) {
+				#header {
+					padding-top: 1em;
+					min-height: 0;
+				}
+				
+				.about-container {
+					max-height: 120px;
+				}
+				
+				.image.avatar img {
+					width: 80px;
+					height: 80px;
+				}
+				
+				.main-content {
+					padding-top: 60px;
+				}
+				
+				.topnav {
+					padding: 10px 0;
+				}
+				
+				.filter-section, .filter-buttons {
+					padding: 15px 0;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
-
 		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-					<h1><strong>I am Strata</strong>, a super simple<br />
-					responsive site template freebie<br />
-					crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+		<header id="header">
+			<div class="inner">
+				<div class="avatar-container">
+					<!-- <a href="#" class="image avatar"><img src="images/profil.jpg" alt="" /></a> -->
 				</div>
-			</header>
+				<h1 class="header-title">Hello, welcome to my portfolio!</h1>
+				<p class="header-subtitle">I'm Ilker Aydin Yilmaz</p>
+				
+				<div class="about-container">
+					<h3>About Me</h3>
+					<p>I am studying Mechatronics Engineering in Turkey. I have a deep passion for software development and technology.</p>
+					<p>I have a strong interest in artificial intelligence and being a data scientist is in my blood. I have a logical approach and analyze even the simplest things before taking action.</p>
+					<p>I get excited about extracting meaning from data and developing artificial intelligence models that solve real-world problems.</p>
+				</div>
+				
+				
+				
+			</div>
+		</header>
+
+		<!-- Navigation -->
+		<nav class="topnav">
+			<ul>
+				<li><a href="index.html" class="active">Home</a></li>
+				<!-- <li><a href="data-science.html">Data Science & Analytics</a></li>
+				<li><a href="ai-ml.html">AI/ML Engineering</a></li> -->
+			</ul>
+		</nav>
 
 		<!-- Main -->
-			<div id="main">
-
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>Ipsum lorem dolor aliquam ante commodo<br />
-							magna sed accumsan arcu neque.</h2>
-						</header>
-						<p>Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</section>
-
-				<!-- Two -->
-					<section id="two">
-						<h2>Recent Work</h2>
-						<div class="row">
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
-								<h3>Magna sed consequat tempus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
-								<h3>Ultricies lacinia interdum</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-								<h3>Tortor metus commodo</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-								<h3>Quam neque phasellus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-								<h3>Nunc enim commodo aliquet</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-								<h3>Risus ornare lacinia</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
+		<div id="main">
+			<div class="main-content">
+				<!-- All Projects section -->
+				<section>
+					<h2 class="section-title">All Projects</h2>
+					<p>Here you'll find a comprehensive collection of all my data science, analytics, and AI/ML engineering projects. I use Python, SQL, TensorFlow, PyTorch, and various data analysis tools to build innovative solutions. Each project uses carefully selected datasets that go beyond the usual examples, allowing me to develop unique approaches and insights.</p>
+					
+					<!-- Filter section -->
+					<div class="filter-section">
+						<h3 class="filter-title">Select Features</h3>
+						<div class="filter-buttons">
+							<button class="filter-btn active" data-filter="all">All</button>
+							<button class="filter-btn" data-filter="python">Python</button>
+							<button class="filter-btn" data-filter="sql">SQL</button>
+							<button class="filter-btn" data-filter="excel">Excel</button>
+							<button class="filter-btn" data-filter="tableau">Tableau</button>
+							<button class="filter-btn" data-filter="ml">Machine Learning</button>
+							<button class="filter-btn" data-filter="tensorflow">TensorFlow</button>
+							<button class="filter-btn" data-filter="pytorch">PyTorch</button>
+							<button class="filter-btn" data-filter="nlp">NLP</button>
+							<button class="filter-btn" data-filter="deeplearning">Deep Learning</button>
+							<button class="filter-btn" data-filter="neuralnetworks">Neural Networks</button>
+							<button class="filter-btn" data-filter="llm">LLM</button>
+							<button class="filter-btn" data-filter="streamlit">Streamlit</button>
 						</div>
-						<ul class="actions">
-							<li><a href="#" class="button">Full Portfolio</a></li>
-						</ul>
-					</section>
-
-				<!-- Three -->
-					<section id="three">
-						<h2>Get In Touch</h2>
-						<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+					
 						<div class="row">
-							<div class="col-8 col-12-small">
-								<form method="post" action="#">
-									<div class="row gtr-uniform gtr-50">
-										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
-									</div>
-								</form>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</div>
-							<div class="col-4 col-12-small">
-								<ul class="labeled-icons">
-									<li>
-										<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
-										1234 Somewhere Rd.<br />
-										Nashville, TN 00000<br />
-										United States
-									</li>
-									<li>
-										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-										000-000-0000
-									</li>
-									<li>
-										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-										<a href="#">hello@untitled.tld</a>
-									</li>
-								</ul>
-							</div>
+							<!-- Project 1 -->
+							<article class="col-6 col-12-xsmall work-item project-item" data-tags="python ml tableau streamlit">
+								<a href="https://github.com/IamIlker0/Car-Price-Prediction" class="image fit thumb"><img src="images/ivana-cajina-WPVtT0MEM00-unsplash.jpg" alt="" /></a>
+								<h3>Car Price Project</h3>
+								<p>Built a machine learning model to predict car prices with 94% accuracy using Python. Implemented interactive visualizations with Tableau and deployed a user-friendly interface via Streamlit.</p>
+								<div class="tags">
+									<span class="tag python">Python</span>
+									<span class="tag ml">Machine Learning</span>
+									<span class="tag tableau">Tableau</span>
+									<span class="tag streamlit">Streamlit</span>
+								</div>
+							</article>
+							
+							<!-- Project 2 -->
+							<article class="col-6 col-12-xsmall work-item project-item" data-tags="python sql tableau streamlit excel ml">
+								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/pexels-markusspiske-4651145.jpg" alt="" /></a>
+								<h3>Global Economy project</h3>
+								<p>Created a machine learning model to analyze global economic trends with 98% accuracy. Integrated Python, SQL, and Excel for data processing and built interactive visualizations using Tableau and Streamlit.</p>
+								<div class="tags">
+									<span class="tag python">Python</span>
+									<span class="tag sql">SQL</span>
+									<span class="tag tableau">Tableau</span>
+									<span class="tag streamlit">Streamlit</span>
+									<span class="tag excel">Excel</span>
+									<span class="tag ml">Machine Learning</span>
+								</div>
+							</article>
+							
+							
 						</div>
-					</section>
-
-				<!-- Four -->
-				<!--
-					<section id="four">
-						<h2>Elements</h2>
-
-						<section>
-							<h4>Text</h4>
-							<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-							This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-							This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-							<hr />
-							<header>
-								<h4>Heading with a Subtitle</h4>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<header>
-								<h5>Heading with a Subtitle</h5>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<hr />
-							<h2>Heading Level 2</h2>
-							<h3>Heading Level 3</h3>
-							<h4>Heading Level 4</h4>
-							<h5>Heading Level 5</h5>
-							<h6>Heading Level 6</h6>
-							<hr />
-							<h5>Blockquote</h5>
-							<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-							<h5>Preformatted</h5>
-							<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-						</section>
-
-						<section>
-							<h4>Lists</h4>
-							<div class="row">
-								<div class="col-6 col-12-xsmall">
-									<h5>Unordered</h5>
-									<ul>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-									<h5>Alternate</h5>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<h5>Ordered</h5>
-									<ol>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ol>
-									<h5>Icons</h5>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<h5>Actions</h5>
-							<ul class="actions">
-								<li><a href="#" class="button primary">Default</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions small">
-								<li><a href="#" class="button primary small">Small</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<div class="row">
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary small">Small</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary fit">Default</a></li>
-										<li><a href="#" class="button fit">Default</a></li>
-									</ul>
-								</div>
-								<div class="col-6 col-12-small">
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary small fit">Small</a></li>
-										<li><a href="#" class="button small fit">Small</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-
-						<section>
-							<h4>Table</h4>
-							<h5>Default</h5>
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-
-							<h5>Alternate</h5>
-							<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</section>
-
-						<section>
-							<h4>Buttons</h4>
-							<ul class="actions">
-								<li><a href="#" class="button primary">Primary</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button large">Large</a></li>
-								<li><a href="#" class="button">Default</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<ul class="actions fit">
-								<li><a href="#" class="button primary fit">Fit</a></li>
-								<li><a href="#" class="button fit">Fit</a></li>
-							</ul>
-							<ul class="actions fit small">
-								<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-								<li><a href="#" class="button fit small">Fit + Small</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-								<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-							</ul>
-							<ul class="actions">
-								<li><span class="button primary disabled">Primary</span></li>
-								<li><span class="button disabled">Default</span></li>
-							</ul>
-						</section>
-
-						<section>
-							<h4>Form</h4>
-							<form method="post" action="#">
-								<div class="row gtr-uniform gtr-50">
-									<div class="col-6 col-12-xsmall">
-										<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-									</div>
-									<div class="col-6 col-12-xsmall">
-										<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-									</div>
-									<div class="col-12">
-										<select name="demo-category" id="demo-category">
-											<option value="">- Category -</option>
-											<option value="1">Manufacturing</option>
-											<option value="1">Shipping</option>
-											<option value="1">Administration</option>
-											<option value="1">Human Resources</option>
-										</select>
-									</div>
-									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-										<label for="demo-priority-low">Low Priority</label>
-									</div>
-									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-normal" name="demo-priority">
-										<label for="demo-priority-normal">Normal Priority</label>
-									</div>
-									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-high" name="demo-priority">
-										<label for="demo-priority-high">High Priority</label>
-									</div>
-									<div class="col-6 col-12-small">
-										<input type="checkbox" id="demo-copy" name="demo-copy">
-										<label for="demo-copy">Email me a copy of this message</label>
-									</div>
-									<div class="col-6 col-12-small">
-										<input type="checkbox" id="demo-human" name="demo-human" checked>
-										<label for="demo-human">I am a human and not a robot</label>
-									</div>
-									<div class="col-12">
-										<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-									</div>
-									<div class="col-12">
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</section>
-
-						<section>
-							<h4>Image</h4>
-							<h5>Fit</h5>
-							<div class="box alt">
-								<div class="row gtr-50 gtr-uniform">
-									<div class="col-12"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-								</div>
-							</div>
-							<h5>Left &amp; Right</h5>
-							<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-							<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-						</section>
-
-					</section>
-				-->
-
+					</div>
+				</section>
 			</div>
+		</div>
 
 		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+		<footer id="footer">
+			<div class="contact-section">
+				<h3>Contact</h3>
+					<div class="social-icons">
+						<a href="mailto:ilkeer0358@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a>
+						<a href="https://www.linkedin.com/in/ilker-aydın-yılmaz-21ba2926b" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
+						<a href="https://github.com/IamIlker0?tab=repositories" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a>
+						<a href="https://www.kaggle.com/ilkeraydnylmaz" target="_blank" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a>
+					</div>
+				<!-- <ul class="contact-list">
+					<li>
+						<span class="icon solid fa-envelope"></span>
+						<a href="mailto:ilkeer0358@gmail.com">ilkeer0358@gmail.com</a>
+					</li>
+					<li>
+						<span class="icon brands fa-linkedin"></span>
+						<a href="https://www.linkedin.com/in/ilker-aydın-yılmaz-21ba2926b" target="_blank">LinkedIn</a>
+					</li>
+					<li>
+						<span class="icon brands fa-kaggle"></span>
+						<a href="https://www.kaggle.com/ilkeraydnylmaz" target="_blank">Kaggle</a>
+					</li>
+					<li>
+						<span class="icon brands fa-github"></span>
+						<a href="https://github.com/IamIlker0?tab=repositories" target="_blank">GitHub</a>
+					</li>
+				</ul> -->
+			</div>
+
+			<!-- <div class="inner">
+				<ul class="copyright">
+					<li>&copy; Ilker Aydin Yilmaz</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div> -->
+		</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		
+		<!-- Custom tag filtering script -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const filterButtons = document.querySelectorAll('.filter-btn');
+				const projectItems = document.querySelectorAll('.project-item');
+				
+				// Keep track of active filters
+				let activeFilters = ['all'];
+				
+				// Filter button click event
+				filterButtons.forEach(button => {
+					button.addEventListener('click', function() {
+						const filterValue = this.getAttribute('data-filter');
+						
+						// Toggle active class on the button
+						this.classList.toggle('active');
+						
+						// If "All" is clicked, clear other filters
+						if (filterValue === 'all') {
+							if (this.classList.contains('active')) {
+								// Deactivate all other buttons
+								filterButtons.forEach(btn => {
+									if (btn.getAttribute('data-filter') !== 'all') {
+										btn.classList.remove('active');
+									}
+								});
+								activeFilters = ['all'];
+							} else {
+								// If "All" is deactivated, activate it again (can't have no filter)
+								this.classList.add('active');
+								activeFilters = ['all'];
+							}
+						} else {
+							// Handle other filters
+							const allButton = document.querySelector('.filter-btn[data-filter="all"]');
+							
+							// Deactivate "All" button when a specific filter is selected
+							if (this.classList.contains('active')) {
+								allButton.classList.remove('active');
+								
+								// Add this filter to active filters if it's not already there
+								if (!activeFilters.includes(filterValue)) {
+									// Remove 'all' if it's in the array
+									if (activeFilters.includes('all')) {
+										activeFilters = [filterValue];
+									} else {
+										activeFilters.push(filterValue);
+									}
+								}
+							} else {
+								// Remove this filter from active filters
+								activeFilters = activeFilters.filter(f => f !== filterValue);
+								
+								// If no filters active, reactivate "All"
+								if (activeFilters.length === 0) {
+									allButton.classList.add('active');
+									activeFilters = ['all'];
+								}
+							}
+						}
+						
+						// Apply filters to projects
+						applyFilters();
+					});
+				});
+				
+				// Function to apply active filters to projects
+				function applyFilters() {
+					projectItems.forEach(item => {
+						if (activeFilters.includes('all')) {
+							item.classList.remove('hidden');
+						} else {
+							const tags = item.getAttribute('data-tags');
+							// Check if any of the active filters match this item's tags
+							const hasMatchingTag = activeFilters.some(filter => tags.includes(filter));
+							
+							if (hasMatchingTag) {
+								item.classList.remove('hidden');
+							} else {
+								item.classList.add('hidden');
+							}
+						}
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
